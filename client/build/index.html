@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./client/build/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="center">
+      <input type="text" id="ingredient-name" placeholder="INGREDIENT" />
+      <label> gluten free:</label>
+      <input type="checkbox" id="gluten-free" />
+
+      <label> dairy free:</label>
+      <input type="checkbox" id="dairy-free" />
+
+      <button id="get-recipes-button" class="btn btn-primary" type="submit">
+        GET RECIPES
+      </button>
+    </div>
+
+    <div id="recipes-container" class="row row-cols-1 row-cols-md-3 g-4"></div>
+
+    <script id="recipes-template" type="text/x-handlebars-template">
+      {{#each recipes}}
+        <div class="col">
+          <div class="card h-100">
+            <div class="text-center">
+              <img
+                src={{thumbnail}}
+                onerror="this.src='https://phantom-marca.unidadeditorial.es/ee46d7a1c09b447117f8e83c6e131f31/resize/1320/f/jpg/assets/multimedia/imagenes/2022/02/02/16437899001758.jpg'"
+                width="250"
+                height="200"
+                class="card-img-top"
+                alt="..."
+              />
+              <h5 class="card-title title">{{title}}</h5>
+            </div>
+            <div class="ingredients-container">
+              <div class="ingredients-card">
+                <div class="card-header">
+                  ingredients:
+                </div>
+                <ul class="list-group list-group-flush text-right">
+                  <div class="ingredient-item">{{ingredients}}</div>
+                </ul>
+              </div>
+            </div>
+            <a href="url">{{href}}</a>
+          </div>
+        </div>
+      {{/each}}
+    </script>
+
+    <script id="ingredients-template" type="text/x-handlebars-template">
+      <div class="ingredients-card">
+        <div class="card-header">
+          ingredients:
+        </div>
+        <ul class="list-group list-group-flush text-right">
+          {{#each ingredients}}
+            <li class="list-group-item">
+              <div class="ingredient-item">{{ingredient}}</div>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./client/build/modelRecipes.js"></script>
+    <script src="./client/build/viewRecipes.js"></script>
+    <script src="./client/build/controllerRecipes.js"></script>
+  </body>
+</html>
