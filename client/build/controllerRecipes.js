@@ -11,3 +11,10 @@ $("#get-recipes-button").on("click", async function(){
         viewRecipes.renderRecipes(modelRecipes.recipes)
     })
 })
+
+
+$("#recipes-container").on("click", ".img", function (){
+    const res = $(this).closest(".col").find(".ingredient-item:first").text()
+    viewRecipes.pop(res)
+})
+

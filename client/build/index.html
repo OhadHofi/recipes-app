@@ -35,6 +35,7 @@
           <div class="card h-100">
             <div class="text-center">
               <img
+                class="img"
                 src={{thumbnail}}
                 onerror="this.src='https://phantom-marca.unidadeditorial.es/ee46d7a1c09b447117f8e83c6e131f31/resize/1320/f/jpg/assets/multimedia/imagenes/2022/02/02/16437899001758.jpg'"
                 width="250"
@@ -49,9 +50,11 @@
                 <div class="card-header">
                   ingredients:
                 </div>
-                <ul class="list-group list-group-flush text-right">
-                  <div class="ingredient-item">{{ingredients}}</div>
-                </ul>
+                {{#each ingredients}}
+                  <ul class="list-group list-group-flush text-right">
+                    <p class="ingredient-item">{{this}}</p>
+                  </ul>
+                {{/each}}
               </div>
             </div>
             <a href="url">{{href}}</a>
