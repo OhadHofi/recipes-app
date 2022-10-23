@@ -8,12 +8,11 @@ class ViewRecipes{
                 temp += recipes[i]["ingredients"][j]
                 temp += ' \n '
             }
-            recipes[i]["ingredients"] = temp
-            console.log(recipes[i]["ingredients"])
+            recipes["ingredients"] = temp
         }
 
         console.log(recipes["ingredients"])
- 
+
         $("#recipes-container").empty()
         const source = $("#recipes-template").html()
         const templateRecipe = Handlebars.compile(source);
